@@ -15,7 +15,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Initial a table view
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let tableViewController = TableViewController()
+        
+        // Title for TableViewController
+        tableViewController.title = "Contacts"
+        
+        // Initial a navigation
+        let navigation = UINavigationController(rootViewController: tableViewController)
+        
+        // Title color for NavigationBar
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.boldSystemFontOfSize(25)]
+        
+        // Background Color for NavigationBar
+        UINavigationBar.appearance().barTintColor = UIColor.blackColor()
+        
+        // Status bar color
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
+        window?.rootViewController = navigation
+        
+        // "Is initial" in main
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
